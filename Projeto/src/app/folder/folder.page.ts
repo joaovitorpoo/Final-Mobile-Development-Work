@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Evento } from '../models/evento.model';
+import { artista } from '../models/artista.model';
+import { ArtistaService } from '../services/artista.service'
 import { EventoService } from '../services/evento.service'
 
 @Component({
@@ -11,8 +13,9 @@ import { EventoService } from '../services/evento.service'
 export class FolderPage implements OnInit {
   public folder: string;
   dados: Evento[];
+  dadosArtistas: artista[];
 
-  constructor(private activatedRoute: ActivatedRoute, private eventoService: EventoService) { 
+  constructor(private activatedRoute: ActivatedRoute, private eventoService: EventoService, private artistaService: ArtistaService) { 
     
   }
 
@@ -36,10 +39,22 @@ export class FolderPage implements OnInit {
         'complemento': "Salao De Festa"
       }
     }
-    await this.eventoService.editarById(1,primeroEvento);
-    await this.eventoService.atualizarDados();
-    this.dados = this.eventoService.getDados();
-    console.log(this.dados);
+
+    let primeroArtista: artista = {
+      'id': 0,
+      'nome': "Jhom Rocha",
+      'email': "joaovitor1998wejota@gmail.com",
+      'telefone': "(31) 98843-2560",
+      'tipo': "Programador",
+      'descricao': "Primeiro App",
+      'dataDeNascimento': "26/04/1998",
+      'urlImg': "https://image.freepik.com/vetores-gratis/perfil-de-personagem-de-desenho-animado-de-avatar-de-homem-de-negocios_18591-50137.jpg"
+    }
+
+    
+    
+    
+    
   }
 
 }

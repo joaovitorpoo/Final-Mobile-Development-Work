@@ -27,12 +27,12 @@ export class EventoService {
     await this.atualizarDados();
     for (let index = 0; index < this.eventos.length; index++) {
      if (this.eventos[index].id == id){
-       this.eventos[index] = evento;
+        this.eventos[index] = evento;
      }
     }
     this.storage.set('Eventos', this.eventos);
     await this.atualizarDados();
-   }
+  }
 
   async deleteById (id: number) {
    await this.atualizarDados();
@@ -51,5 +51,9 @@ export class EventoService {
 
   getDados() {
     return this.eventos;
+  }
+
+  async limparDados() {
+    await this.storage.remove('Eventos');
   }
 }

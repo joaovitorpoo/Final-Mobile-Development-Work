@@ -6,5 +6,5 @@ export interface artista {
     descricao: string;
     dataDeNascimento: string;
     email: String;
-    telefone: number;
+    telefone: string;
 }
