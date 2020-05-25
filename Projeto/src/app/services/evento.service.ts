@@ -1,0 +1,55 @@
+import { Injectable } from '@angular/core';
+import { Evento } from '../models/evento.model'
+import { Storage } from '@ionic/storage';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EventoService {
+  
+  eventos: Evento[];
+
+  constructor(private storage: Storage) { }
+
+  async add(evento: Evento){
+    await this.atualizarDados();
+    if (this.eventos == null) {
+      this.eventos = [ evento ];
+      this.storage.set('Eventos', this.eventos);
+    } else {
+      this.eventos.push(evento);
+      this.storage.set('Eventos', this.eventos);
+    }
+    await this.atualizarDados();
+  }
+
+  async editarById (id: number, evento: Evento) {
+    await this.atualizarDados();
+    for (let index = 0; index < this.eventos.length; index++) {
+     if (this.eventos[index].id == id){
+       this.eventos[index] = evento;
+     }
+    }
+    this.storage.set('Eventos', this.eventos);
+    await this.atualizarDados();
+   }
+
+  async deleteById (id: number) {
+   await this.atualizarDados();
+   for (let index = 0; index < this.eventos.length; index++) {
+    if (this.eventos[index].id == id){
+      this.eventos.splice(index, 1);
+    }
+   }
+   this.storage.set('Eventos', this.eventos);
+   await this.atualizarDados();
+  }
+
+  async atualizarDados() {
+    await this.storage.get('Eventos').then((value: Evento[]) => this.eventos = value);
+  }
+
+  getDados() {
+    return this.eventos;
+  }
+}
