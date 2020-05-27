@@ -8,5 +8,16 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor='let artista of artistas'>
+      <ion-avatar slot="start">
+        <img src="{{ artista.urlImg }}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ artista.nome }}</h2>
+        <h3>{{ artista.tipo }}</h3>
+        <p>{{ artista. descricao}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

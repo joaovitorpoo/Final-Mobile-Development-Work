@@ -12,7 +12,7 @@ import { EventoService } from '../services/evento.service'
 })
 export class FolderPage implements OnInit {
   public folder: string;
-  dados: Evento[];
+  eventos: Evento[];
   dadosArtistas: artista[];
 
   constructor(private nav: Router, private activatedRoute: ActivatedRoute, private eventoService: EventoService, private artistaService: ArtistaService) { 
@@ -21,6 +21,10 @@ export class FolderPage implements OnInit {
 
   async ngOnInit() {
     ///this.nav.navigate(['/slide']);
+
+    await this.eventoService.atualizarDados();
+    this.eventos = this.eventoService.getDados();
+    
   }
 
 }

@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'slide',
     loadChildren: () => import('./slide/slide.module').then( m => m.SlidePageModule)
+  },
+  {
+    path: 'loguin',
+    loadChildren: () => import('./loguin/loguin.module').then( m => m.LoguinPageModule)
   }
 ];
 

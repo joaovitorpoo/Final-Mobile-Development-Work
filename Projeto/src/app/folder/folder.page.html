@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -8,7 +8,14 @@
 </ion-header>
 
 <ion-content>
-  <div *ngFor='let item of a'>
-    {{ item }}
-  </div>
+  <ion-card *ngFor='let evento of eventos'>
+    <img src="{{ evento.urlImg }}" />
+    <ion-card-header>
+      <ion-card-subtitle>{{ evento.data }}</ion-card-subtitle>
+      <ion-card-title>{{ evento.nome }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ evento.descricao }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
