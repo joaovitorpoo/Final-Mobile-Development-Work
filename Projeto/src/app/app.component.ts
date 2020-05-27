@@ -15,17 +15,17 @@ export class AppComponent implements OnInit {
     {
       title: 'Eventos',
       url: '/eventos',
-      icon: 'mail'
+      icon: 'calendar'
     },
     {
       title: 'Artistas',
       url: '/artistas',
-      icon: 'mail'
+      icon: 'people'
     },
     {
       title: 'Loguin',
       url: '/loguin',
-      icon: 'mail'
+      icon: 'person'
     }
   ];
 
