@@ -1,0 +1,34 @@
+<ion-content>
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let s of slides">
+      <div class="slide-img-padding"><img [src]="s.img"></div>
+      <div><h3 class="slide-txt-h3" [innerHTML]="s.titulo"></h3></div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer no-border>
+
+  <ion-grid fixed>
+    <ion-row>
+     <ion-col size="10" offset="1">
+       <ion-button routerLink="/eventos" color="success"
+                   expand="full"
+                   shape="round"
+                   mode="ios"
+                   class="btn-primary">
+         EVENTOS
+       </ion-button>
+     </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <ion-button expand="full"
+                    fill="clear">
+          <ion-label color="dark">Loguin artista</ion-label>
+        </ion-button>
+      </ion-col>
+     </ion-row>
+  </ion-grid>
+  
+</ion-footer>

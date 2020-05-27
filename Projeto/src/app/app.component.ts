@@ -14,7 +14,12 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Eventos',
-      url: '/folder/Inbox',
+      url: '/eventos',
+      icon: 'mail'
+    },
+    {
+      title: 'Artistas',
+      url: '/artistas',
       icon: 'mail'
     }
   ];
