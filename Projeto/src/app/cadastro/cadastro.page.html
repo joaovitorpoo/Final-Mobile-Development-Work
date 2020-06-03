@@ -1,9 +1,63 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastre-se</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <form >
+    <img src="./assets/quino-al-unsplash.jpg">
+    <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input [(ngModel)]="artista.nome" name="nome" type="text"></ion-input>
+    </ion-item>
+  <ion-item>
+    <ion-label [(ngModel)]="artista.tipo" name="tipo" >Arte</ion-label>
+    <ion-select  value="tipo" okText="Ok" cancelText="Cancelar">
+      <ion-select-option value="pinturas">Pinturas</ion-select-option>
+      <ion-select-option value="esculturas">Esculturas</ion-select-option>
+      <ion-select-option value="teatro">Teatro</ion-select-option>
+      <ion-select-option value="danca">Dança</ion-select-option>
+      <ion-select-option value="curtas">Curtas</ion-select-option>
+      <ion-select-option value="musica">Musica</ion-select-option>
+      <ion-select-option value="outra">Outras</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Data de nascimento</ion-label>
+    <ion-datetime [(ngModel)]="artista.dataDeNascimento" name="dataDeNascimento" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2025-12-09"></ion-datetime>
+  </ion-item>
+    <ion-item>
+      <ion-label>E-mail</ion-label>
+      <ion-input [(ngModel)]="artista.email" name="email" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Telefone</ion-label>
+    <ion-input [(ngModel)]="artista.telefone" name="telefone" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Url da imagem</ion-label>
+    <ion-input [(ngModel)]="artista.urlImg" name="urlImg" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descrição</ion-label>
+    <ion-textarea [(ngModel)]="artista.descricao" name="descricao" type="text"></ion-textarea>
+  </ion-item>
+ </form>
+  <ion-grid fixed>
+    <ion-row>
+     <ion-col size="10" offset="1">
+       <ion-button color="success"
+                   expand="full"
+                   shape="round"
+                   mode="ios"
+                   class="btn-primary">
+        Criar conta
+       </ion-button>
+     </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
