@@ -22,6 +22,8 @@ export class ArtistaService {
     await this.atualizarDados();
   }
 
+  
+
   async editarById (id: number, artista: artista) {
     await this.atualizarDados();
     for (let index = 0; index < this.artistas.length; index++) {
