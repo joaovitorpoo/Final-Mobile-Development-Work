@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
       icon: 'people'
     },
     {
-      title: 'Loguin',
-      url: '/loguin',
+      title: 'Login',
+      url: '/login',
       icon: 'person'
     }
   ];
