@@ -57,6 +57,14 @@ export class ArtistaService {
     await this.storage.get('Artistas').then((value: artista[]) => this.artistas = value);
   }
 
+  idOpen(){
+    if (this.artistas == null || this.artistas.length == 0) {
+      return 0;
+    } else {
+      return this.artistas.length;
+    }
+  }
+
   getDados() {
     return this.artistas;
   }

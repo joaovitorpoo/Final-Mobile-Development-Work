@@ -5,6 +5,7 @@ export interface artista {
     tipo: string;
     descricao: string;
     dataDeNascimento: string;
-    email: String;
+    email: string;
     telefone: string;
+    senha: string;
 }
