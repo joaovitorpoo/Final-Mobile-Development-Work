@@ -22,7 +22,14 @@ export class ArtistaService {
     await this.atualizarDados();
   }
 
-  
+  getById(id):artista {
+    this.atualizarDados();
+    for (let index = 0; index < this.artistas.length; index++) {
+      if (this.artistas[index].id == id){
+        return this.artistas[index];
+      }
+    }
+  }
 
   async editarById (id: number, artista: artista) {
     await this.atualizarDados();

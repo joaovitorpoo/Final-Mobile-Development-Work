@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
   {
-    path: 'artista',
+    path: 'artista/:id',
     loadChildren: () => import('./artista/artista.module').then( m => m.ArtistaPageModule)
   }
 ];

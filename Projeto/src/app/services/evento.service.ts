@@ -24,6 +24,7 @@ export class EventoService {
   }
 
   getById(id):Evento {
+    this.atualizarDados();
     for (let index = 0; index < this.eventos.length; index++) {
       if (this.eventos[index].id == id){
         return this.eventos[index];

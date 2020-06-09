@@ -24,13 +24,10 @@ export class FolderPage implements OnInit {
     ///this.nav.navigate(['/slide']);
     await this.eventoService.atualizarDados();
     this.eventos = this.eventoService.getDados();
-    console.log(this.eventos);
-    
   }
 
-  clicked(id) {
+  clicked(id){
     let urlRota = '/evento/'+id;
-    console.log(id);
     this.nav.navigate([urlRota]);
   }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { artista } from '../models/artista.model';
+import { ArtistaService } from '../services/artista.service';
 
 @Component({
   selector: 'app-artista',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistaPage implements OnInit {
 
-  constructor() { }
+  Artista: artista;
+
+  constructor(private activatedRoute: ActivatedRoute, private artistaService: ArtistaService) { }
 
   ngOnInit() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.Artista = this.artistaService.getById(parseInt(id));
   }
 
 }

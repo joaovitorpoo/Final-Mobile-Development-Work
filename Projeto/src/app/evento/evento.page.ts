@@ -16,8 +16,6 @@ export class EventoPage implements OnInit {
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(id);
-
     this.evento = this.eventoService.getById(parseInt(id));
 
     

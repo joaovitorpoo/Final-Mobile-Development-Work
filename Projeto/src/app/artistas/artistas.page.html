@@ -9,15 +9,17 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor='let artista of artistas'>
-      <ion-avatar slot="start">
-        <img src="{{ artista.urlImg }}">
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ artista.nome }}</h2>
-        <h3>{{ artista.tipo }}</h3>
-        <p>{{ artista. descricao}}</p>
-      </ion-label>
-    </ion-item>
+    <div *ngFor='let artista of artistas'>
+      <ion-item (click)="clicked(artista.id)">
+        <ion-avatar slot="start">
+          <img src="{{ artista.urlImg }}">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ artista.nome }}</h2>
+          <h3>{{ artista.tipo }}</h3>
+          <p>{{ artista. descricao}}</p>
+        </ion-label>
+      </ion-item>
+    </div>
   </ion-list>
 </ion-content>

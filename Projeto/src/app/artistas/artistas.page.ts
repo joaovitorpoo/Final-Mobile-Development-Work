@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { artista } from '../models/artista.model';
 import { ArtistaService } from '../services/artista.service'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-artistas',
@@ -11,11 +12,15 @@ export class ArtistasPage implements OnInit {
 
   artistas: artista[];
 
-  constructor(private artistaService: ArtistaService) { }
+  constructor(private artistaService: ArtistaService, private nav: Router, private activatedRoute: ActivatedRoute) { }
 
   async ngOnInit() {
     await this.artistaService.atualizarDados();
     this.artistas = this.artistaService.getDados();
   }
 
+  clicked(id){
+    let urlRota = '/artista/'+id;
+    this.nav.navigate([urlRota]);
+  }
 }
