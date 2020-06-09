@@ -8,14 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor='let evento of eventos'>
-    <img src="{{ evento.urlImg }}" />
-    <ion-card-header>
-      <ion-card-subtitle>{{ evento.data }}</ion-card-subtitle>
-      <ion-card-title>{{ evento.nome }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{ evento.descricao }}
-    </ion-card-content>
-  </ion-card>
+  <div *ngFor='let evento of eventos'>
+    <ion-card (click)="clicked(evento.id)">
+      <img src="{{ evento.urlImg }}" />
+      <ion-card-header>
+        <ion-card-subtitle>{{ evento.data }}</ion-card-subtitle>
+        <ion-card-title>{{ evento.nome }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ evento.descricao }}
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

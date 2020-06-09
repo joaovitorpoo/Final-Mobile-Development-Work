@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Evento } from '../models/evento.model';
+import { EventoService } from '../services/evento.service';
 
 @Component({
   selector: 'app-evento',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventoPage implements OnInit {
 
-  constructor() { }
+  evento: Evento;
+
+  constructor(private activatedRoute: ActivatedRoute, private eventoService: EventoService) { }
 
   ngOnInit() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(id);
+
+    this.evento = this.eventoService.getById(parseInt(id));
+
+    
   }
+
 
 }

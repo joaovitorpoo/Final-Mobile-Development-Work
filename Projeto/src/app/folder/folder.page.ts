@@ -5,6 +5,7 @@ import { artista } from '../models/artista.model';
 import { ArtistaService } from '../services/artista.service'
 import { EventoService } from '../services/evento.service'
 
+
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
@@ -21,10 +22,15 @@ export class FolderPage implements OnInit {
 
   async ngOnInit() {
     ///this.nav.navigate(['/slide']);
-
     await this.eventoService.atualizarDados();
     this.eventos = this.eventoService.getDados();
+    console.log(this.eventos);
     
   }
 
+  clicked(id) {
+    let urlRota = '/evento/'+id;
+    console.log(id);
+    this.nav.navigate([urlRota]);
+  }
 }
