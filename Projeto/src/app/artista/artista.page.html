@@ -1,12 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Artista</ion-title>
+    <ion-title >{{ Artista.nome }}</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  {{ Artista.nome }}
+  <ion-card >
+    <img src="{{ Artista.urlImg }}"/>
+    <ion-card-header>
+      <ion-card-subtitle>R$: {{ Artista.dataDeNascimento}} </ion-card-subtitle>
+      <ion-card-title>{{ Artista.nome }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Tipo de arte: {{ Artista.tipo }}
+    </ion-card-content>
+    <ion-card-content>
+      Email: {{ Artista.email }}
+    </ion-card-content>
+    <ion-card-content>
+      Telefone: {{ Artista.telefone }}
+    </ion-card-content>
+    <ion-card-content>
+      {{ Artista.descricao }}
+     </ion-card-content>
+  </ion-card>
 </ion-content>

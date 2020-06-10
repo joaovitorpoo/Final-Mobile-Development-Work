@@ -1,12 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Evento</ion-title>
+    <ion-title>{{ evento.nome }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  {{ evento.nome }}
+  <ion-card>
+    <img src="{{ evento.urlImg }}" />
+    <ion-card-header>
+      <ion-card-subtitle>R$: {{evento.valor}} </ion-card-subtitle>
+      <ion-card-title>{{ evento.nome }}</ion-card-title>
+      <ion-card-subtitle> {{ evento.data }} / {{ evento.horario}} | Tipo de evento: {{ evento.tipo }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Endereço: {{ evento.endereco.cidade }}, {{ evento.endereco.bairro }}, {{ evento.endereco.rua }}, 
+      {{ evento.endereco.numero}}, Complemento: {{ evento.endereco.complemento }}
+    </ion-card-content>
+    <ion-card-content>
+      {{ evento.descricao }}
+     </ion-card-content>
+     <ion-card-content>
+       Contato: {{ evento.contatoEvento }}
+     </ion-card-content>
+  </ion-card>
 </ion-content>
