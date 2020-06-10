@@ -24,6 +24,7 @@ export class FolderPage implements OnInit {
     ///this.nav.navigate(['/slide']);
     await this.eventoService.atualizarDados();
     this.eventos = this.eventoService.getDados();
+    
   }
 
   clicked(id){

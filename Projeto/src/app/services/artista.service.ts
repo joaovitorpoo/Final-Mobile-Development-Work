@@ -31,6 +31,16 @@ export class ArtistaService {
     }
   }
 
+  async getByEmail(email) {
+    await this.atualizarDados();
+    for (let index = 0; index < this.artistas.length; index++) {
+     if (this.artistas[index].email == email){
+      return this.artistas[index];
+     }
+    }
+    return null;
+  }
+
   async editarById (id: number, artista: artista) {
     await this.atualizarDados();
     for (let index = 0; index < this.artistas.length; index++) {

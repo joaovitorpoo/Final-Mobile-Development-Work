@@ -12,23 +12,24 @@
     <img src="/assets/img/img4.jpg">
     <ion-item>
         <ion-label color="success" position="floating">E-mail</ion-label>
-        <ion-input color="success" type="email"></ion-input>
+        <ion-input [(ngModel)]="loginUser.email" name="email" color="success" type="email"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label color="success" position="floating">Senha</ion-label>
-        <ion-input color="success" type="password"></ion-input>
+        <ion-input [(ngModel)]="loginUser.senha" name="senha" color="success" type="password"></ion-input>
     </ion-item>
 
   <ion-grid fixed>
     <ion-row>
      <ion-col size="10" offset="1">
-       <ion-button color="success"
+       <ion-button (click)="loginArtista()"
+                   color="success"
                    expand="full"
                    shape="round"
                    mode="ios"
                    class="btn-primary">
         Entrar
-       </ion-button>
+       </ion-button> 
      </ion-col>
     </ion-row>
     <ion-row>

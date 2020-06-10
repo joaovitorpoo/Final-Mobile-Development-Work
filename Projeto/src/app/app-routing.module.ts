@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'artista/:id',
     loadChildren: () => import('./artista/artista.module').then( m => m.ArtistaPageModule)
+  },
+  {
+    path: 'eventos-artista/:id',
+    loadChildren: () => import('./eventos-artista/eventos-artista.module').then( m => m.EventosArtistaPageModule)
   }
 ];
 
