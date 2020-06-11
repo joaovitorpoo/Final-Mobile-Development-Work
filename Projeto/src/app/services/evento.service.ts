@@ -23,13 +23,23 @@ export class EventoService {
     await this.atualizarDados();
   }
 
+  getByArtista(idArtista) {
+    let eventosArtista: Evento[] = [];
+    for (let index = 0; index < this.eventos.length; index++) {
+      if (this.eventos[index].idArtistas == idArtista){
+        eventosArtista.push(this.eventos[index]);
+      }
+    }
+    return eventosArtista;
+  }
+
   getById(id):Evento {
     this.atualizarDados();
     for (let index = 0; index < this.eventos.length; index++) {
       if (this.eventos[index].id == id){
         return this.eventos[index];
       }
-     }
+    }
   }
 
   async editarById (id: number, evento: Evento) {

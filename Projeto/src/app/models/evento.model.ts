@@ -1,6 +1,6 @@
 export interface Evento {
     id: number;
-    idArtistas: number[];
+    idArtistas: number;
     urlImg: String;
     nome: string;
     valor: string;

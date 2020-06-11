@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Meus Eventos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <div *ngFor='let evento of eventosArtista'>
+      <ion-item (click)="presentActionSheet(evento)">
+        <ion-avatar slot="start">
+          <img src="{{ evento.urlImg }}">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ evento.nome }}</h2>
+          <h3>{{ evento.tipo }}</h3>
+          <p>{{ evento.descricao }}</p>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="cadastrarEvento()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

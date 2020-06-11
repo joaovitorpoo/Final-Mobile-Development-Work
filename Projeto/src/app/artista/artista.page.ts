@@ -17,6 +17,7 @@ export class ArtistaPage implements OnInit {
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.Artista = this.artistaService.getById(parseInt(id));
+    console.log(this.artistaService.getById(parseInt(id)));
   }
 
 }

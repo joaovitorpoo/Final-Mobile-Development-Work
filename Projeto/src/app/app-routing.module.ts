@@ -38,6 +38,14 @@ const routes: Routes = [
   {
     path: 'eventos-artista/:id',
     loadChildren: () => import('./eventos-artista/eventos-artista.module').then( m => m.EventosArtistaPageModule)
+  },
+  {
+    path: 'cadastrar-evento/:id',
+    loadChildren: () => import('./cadastrar-evento/cadastrar-evento.module').then( m => m.CadastrarEventoPageModule)
+  },
+  {
+    path: 'editar-evento',
+    loadChildren: () => import('./editar-evento/editar-evento.module').then( m => m.EditarEventoPageModule)
   }
 ];
 
