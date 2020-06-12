@@ -15,12 +15,16 @@ export class ArtistasPage implements OnInit {
   constructor(private artistaService: ArtistaService, private nav: Router, private activatedRoute: ActivatedRoute) { }
 
   async ngOnInit() {
-    await this.artistaService.atualizarDados();
-    this.artistas = this.artistaService.getDados();
+    
   }
 
   clicked(id){
     let urlRota = '/artista/'+id;
     this.nav.navigate([urlRota]);
+  }
+
+  async ionViewWillEnter() {
+    await this.artistaService.atualizarDados();
+    this.artistas = this.artistaService.getDados();
   }
 }

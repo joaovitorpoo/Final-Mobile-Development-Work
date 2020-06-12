@@ -9,11 +9,9 @@ export interface Evento {
     data: string;
     horario: string;
     contatoEvento: string;
-    endereco: {
-        cidade: string;
-        bairro: string;
-        rua: string;
-        numero: number;
-        complemento: string;
-    };
+    cidade: string;
+    bairro: string;
+    rua: string;
+    numero: number;
+    complemento: string;
 }

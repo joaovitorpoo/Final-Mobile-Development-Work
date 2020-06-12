@@ -17,15 +17,18 @@ export class EventosArtistaPage implements OnInit {
   constructor(private nav: Router, private activatedRoute: ActivatedRoute, private eventoService: EventoService, public actionSheetController: ActionSheetController) { }
 
   async ngOnInit() {
-    await this.eventoService.atualizarDados();
     this.idArtista = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.eventosArtista = await this.eventoService.getByArtista(this.idArtista);
-    console.log(this.eventosArtista);
   }
 
   cadastrarEvento() {
     let urlRota = '/cadastrar-evento/'+this.idArtista;
     this.nav.navigate([urlRota]);
+  }
+
+  async ionViewWillEnter() {
+    await this.eventoService.atualizarDados();
+    this.eventosArtista = await this.eventoService.getByArtista(this.idArtista);
+    console.log(this.eventosArtista);
   }
 
   async presentActionSheet(evento: Evento) {
@@ -35,7 +38,6 @@ export class EventosArtistaPage implements OnInit {
         text: 'Visualizar',
         icon: 'caret-forward-circle',
         handler: () => {
-          console.log('Play clicked');
           let urlRota = '/evento/'+evento.id;
           this.nav.navigate([urlRota]);
         }
@@ -44,13 +46,14 @@ export class EventosArtistaPage implements OnInit {
         role: 'destructive',
         icon: 'trash',
         handler: () => {
-          console.log('Delete clicked');
+          
         }
       }, {
         text: 'Editar',
         icon: 'share',
         handler: () => {
-          console.log('Share clicked');
+          let urlRota = '/editar-evento/'+evento.id;
+          this.nav.navigate([urlRota]);
         }
       }, {
         text: 'Cancelar',
@@ -62,5 +65,9 @@ export class EventosArtistaPage implements OnInit {
       }]
     });
     await actionSheet.present();
+  }
+
+  async deletarEvento(id) {
+    await this.eventoService.deleteById(id);
   }
 }

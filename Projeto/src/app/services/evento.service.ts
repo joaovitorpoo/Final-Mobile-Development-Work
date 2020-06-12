@@ -64,6 +64,14 @@ export class EventoService {
    await this.atualizarDados();
   }
 
+  idOpen(){
+    if (this.eventos == null || this.eventos.length == 0) {
+      return 0;
+    } else {
+      return this.eventos.length;
+    }
+  }
+
   async atualizarDados() {
     await this.storage.get('Eventos').then((value: Evento[]) => this.eventos = value);
   }
