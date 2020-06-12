@@ -1,12 +1,91 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Editar Evento</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-title>Editar evento</ion-title>
+ </ion-toolbar>
+ </ion-header>
 
 <ion-content>
+  <form>
+    <div>
+    <ion-item>
+      <ion-label>Data</ion-label>
+      <ion-datetime [(ngModel)]="evento.data" name="data" displayFormat="MM/DD/YYYY" min="2020-06-14" max="2025-12-09"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Horario</ion-label>
+      <ion-datetime [(ngModel)]="evento.horario" type="text" name="horario" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Nome </ion-label>
+        <ion-input [(ngModel)]="evento.nome" name="nome" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Arte</ion-label>
+      <ion-select [(ngModel)]="evento.tipo" name="tipo" value="tipo" okText="Ok" cancelText="Cancelar">
+        <ion-select-option value="pinturas">Pinturas</ion-select-option>
+        <ion-select-option value="esculturas">Esculturas</ion-select-option>
+        <ion-select-option value="teatro">Teatro</ion-select-option>
+        <ion-select-option value="danca">Dança</ion-select-option>
+        <ion-select-option value="curtas">Curtas</ion-select-option>
+        <ion-select-option value="musica">Musica</ion-select-option>
+        <ion-select-option value="outra">Outras</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Valor:</ion-label>
+      <ion-input [(ngModel)]="evento.valor" name="valor" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cidade</ion-label>
+      <ion-input [(ngModel)]="evento.cidade" name="cidade" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Bairro</ion-label>
+      <ion-input [(ngModel)]="evento.bairro" name="bairro" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Rua</ion-label>
+      <ion-input [(ngModel)]="evento.rua" name="rua" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Numero</ion-label>
+      <ion-input [(ngModel)]="evento.numero" name="numero" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Complemento</ion-label>
+      <ion-input [(ngModel)]="evento.complemento" name="complemento" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Contato</ion-label>
+        <ion-input [(ngModel)]="evento.contatoEvento" name="contatoEvento" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Url da imagem</ion-label>
+      <ion-input [(ngModel)]="evento.urlImg" name="urlImg" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descrição</ion-label>
+      <ion-textarea [(ngModel)]="evento.descricao" name="descricao" type="text"></ion-textarea>
+    </ion-item>
+  </div>
+ </form>
+  <ion-grid fixed>
+    <ion-row>
+     <ion-col size="10" offset="1">
+       <ion-button 
+                   color="success"
+                   expand="full"
+                   shape="round"
+                   mode="ios"
+                   class="btn-primary">
+        Editar
+       </ion-button>
+     </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
+
