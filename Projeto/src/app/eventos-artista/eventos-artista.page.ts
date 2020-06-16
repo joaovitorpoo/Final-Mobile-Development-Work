@@ -28,7 +28,6 @@ export class EventosArtistaPage implements OnInit {
   async ionViewWillEnter() {
     await this.eventoService.atualizarDados();
     this.eventosArtista = await this.eventoService.getByArtista(this.idArtista);
-    console.log(this.eventosArtista);
   }
 
   async presentActionSheet(evento: Evento) {

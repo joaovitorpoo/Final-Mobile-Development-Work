@@ -42,10 +42,10 @@ export class EventoService {
     }
   }
 
-  async editarById (id: number, evento: Evento) {
+  async editarEvento (evento: Evento) {
     await this.atualizarDados();
     for (let index = 0; index < this.eventos.length; index++) {
-     if (this.eventos[index].id == id){
+     if (this.eventos[index].id == evento.id){
         this.eventos[index] = evento;
      }
     }

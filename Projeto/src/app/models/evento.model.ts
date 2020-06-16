@@ -1,3 +1,5 @@
+import { Data } from '@angular/router';
+
 export interface Evento {
     id: number;
     idArtistas: number;
@@ -6,7 +8,7 @@ export interface Evento {
     valor: string;
     tipo: string;
     descricao: string;
-    data: string;
+    data: Data;
     horario: string;
     contatoEvento: string;
     cidade: string;

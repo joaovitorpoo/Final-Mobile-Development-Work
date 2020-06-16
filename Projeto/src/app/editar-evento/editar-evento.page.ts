@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Evento } from '../models/evento.model';
 import { EventoService } from '../services/evento.service';
 
@@ -11,11 +11,17 @@ import { EventoService } from '../services/evento.service';
 export class EditarEventoPage implements OnInit {
 
   evento = {} as Evento;
+  id: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private eventoService: EventoService) { }
+  constructor(private activatedRoute: ActivatedRoute, private eventoService: EventoService, private nav: Router) { }
 
   ngOnInit() {
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.evento = this.eventoService.getById(parseInt(id));
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.evento = this.eventoService.getById(parseInt(this.id));
+  }
+
+  async editarEvento(){
+    await this.eventoService.editarEvento(this.evento);
+    this.nav.navigate(['/eventos-artista/'+this.evento.idArtistas]);
   }
 }
