@@ -45,7 +45,12 @@ export class EventosArtistaPage implements OnInit {
         role: 'destructive',
         icon: 'trash',
         handler: () => {
-          
+          for (let index = 0; index < this.eventosArtista.length; index++) {
+            if (this.eventosArtista[index].id == evento.id){
+              this.eventosArtista.splice(index, 1);
+            }
+          }
+          this.eventoService.deleteById(evento.id);
         }
       }, {
         text: 'Editar',
@@ -59,14 +64,9 @@ export class EventosArtistaPage implements OnInit {
         icon: 'close',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
         }
       }]
     });
     await actionSheet.present();
-  }
-
-  async deletarEvento(id) {
-    await this.eventoService.deleteById(id);
   }
 }
