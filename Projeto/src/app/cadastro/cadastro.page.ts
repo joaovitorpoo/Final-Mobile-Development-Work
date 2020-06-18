@@ -59,7 +59,6 @@ export class CadastroPage implements OnInit {
         message: texto,
         buttons: ['OK']
       });
-      this.artista.id = this.artistaService.idOpen();
       await this.artistaService.add(this.artista);
       await alert.present();
       console.log(this.artista);

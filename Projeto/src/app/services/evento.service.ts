@@ -1,27 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Evento } from '../models/evento.model'
-import { Storage } from '@ionic/storage';
+import { HttpClient } from '@angular/common/http';
+import { Evento } from '../models/evento.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventoService {
-  
+
   eventos: Evento[];
-
-  constructor(private storage: Storage) { }
-
-  async add(evento: Evento){
-    await this.atualizarDados();
-    if (this.eventos == null) {
-      this.eventos = [ evento ];
-      this.storage.set('Eventos', this.eventos);
-    } else {
-      this.eventos.push(evento);
-      this.storage.set('Eventos', this.eventos);
-    }
-    await this.atualizarDados();
-  }
+  servidor = "http://localhost:3000/eventos/";
+  
+  constructor(private http: HttpClient) { }
 
   getByArtista(idArtista) {
     let eventosArtista: Evento[] = [];
@@ -43,44 +32,34 @@ export class EventoService {
   }
 
   async editarEvento (evento: Evento) {
+    let resposta: Evento;
+    await this.http.put(this.servidor+evento.id, evento).toPromise().then((objetos: Evento) => resposta = objetos).catch();
     await this.atualizarDados();
-    for (let index = 0; index < this.eventos.length; index++) {
-     if (this.eventos[index].id == evento.id){
-        this.eventos[index] = evento;
-     }
-    }
-    this.storage.set('Eventos', this.eventos);
-    await this.atualizarDados();
+    console.log(resposta);
   }
 
   async deleteById (id: number) {
-   await this.atualizarDados();
-   for (let index = 0; index < this.eventos.length; index++) {
-    if (this.eventos[index].id == id){
-      this.eventos.splice(index, 1);
+    await this.atualizarDados();
+    for (let index = 0; index < this.eventos.length; index++) {
+      if (this.eventos[index].id == id){
+        this.eventos.splice(index, 1);
+      }
     }
-   }
-   this.storage.set('Eventos', this.eventos);
-   await this.atualizarDados();
+    await this.http.delete(this.servidor+id).toPromise();
   }
 
-  idOpen(){
-    if (this.eventos == null || this.eventos.length == 0) {
-      return 0;
-    } else {
-      return this.eventos.length;
-    }
+  async add(objeto){
+    let resposta: Evento;
+    await this.http.post(this.servidor, objeto).toPromise().then((objetos: Evento) => resposta = objetos).catch();
+    await this.atualizarDados();
+    console.log(resposta);
   }
 
   async atualizarDados() {
-    await this.storage.get('Eventos').then((value: Evento[]) => this.eventos = value);
+    await this.http.get(this.servidor).toPromise().then((objetos: Evento[]) => this.eventos = objetos).catch();
   }
 
   getDados() {
     return this.eventos;
-  }
-
-  async limparDados() {
-    await this.storage.remove('Eventos');
   }
 }

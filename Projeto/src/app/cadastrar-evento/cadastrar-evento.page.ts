@@ -61,7 +61,6 @@ export class CadastrarEventoPage implements OnInit {
       erros += 1;
     }
     this.evento.idArtistas = this.idArtista;
-    this.evento.id = this.eventoService.idOpen();
     if(erros > 1){
       texto = "Preencha os campos vazios do formulario";
     }
