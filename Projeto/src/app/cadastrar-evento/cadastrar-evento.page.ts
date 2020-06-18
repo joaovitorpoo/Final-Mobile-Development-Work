@@ -23,7 +23,7 @@ export class CadastrarEventoPage implements OnInit {
 
   async cadastrar(){
     let erros = 0;
-    let texto = "Cadastrado do evento foi feito com sucesso";
+    let texto = "Cadastro do evento foi feito com sucesso";
     if (this.evento.urlImg == null) {
       erros += 1;
     }

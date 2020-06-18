@@ -10,7 +10,7 @@
   <ion-card >
     <img src="{{ Artista.urlImg }}"/>
     <ion-card-header>
-      <ion-card-subtitle>R$: {{ Artista.dataDeNascimento}} </ion-card-subtitle>
+      <ion-card-subtitle> {{ Artista.dataDeNascimento | date: 'dd/MM/yyyy'}} </ion-card-subtitle>
       <ion-card-title>{{ Artista.nome }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>

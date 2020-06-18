@@ -12,7 +12,7 @@
     <ion-card (click)="clicked(evento.id)">
       <img src="{{ evento.urlImg }}" />
       <ion-card-header>
-        <ion-card-subtitle>{{ evento.data }}</ion-card-subtitle>
+        <ion-card-subtitle>{{ evento.data | date: 'dd/MM/yyyy' }}</ion-card-subtitle>
         <ion-card-title>{{ evento.nome }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
