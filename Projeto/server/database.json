@@ -1,21 +1,21 @@
 {
   "eventos": [
     {
+      "data": "2020-06-18T04:09:39.793-03:00",
+      "horario": "2020-06-18T04:09:39.794-03:00",
+      "nome": "sadasdasd",
+      "tipo": "danca",
+      "valor": "120.00",
+      "cidade": "Beloasdasd",
+      "rua": "asdasd",
+      "bairro": "asdasdadg",
+      "numero": "1080",
+      "complemento": "sala 02",
+      "contatoEvento": "031985217412",
+      "urlImg": "https://www.hojeemdia.com.br/polopoly_fs/1.763352!/image/image.jpg_gen/derivatives/landscape_653/image.jpg",
+      "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "idArtistas": 1,
-      "urlImg": "https://www7.fiemg.com.br/Assets/Images/DynamicImages/c5850ee53a788557b49789d2c6fd27d571ed1f1e2031d34389fcd8df2329be23.jpg",
-      "nome": "Pinturas Do Antigo Centro De BH",
-      "valor": "Gratis",
-      "tipo": "Pintura",
-      "descricao": "Pinturas dos pontos turisticos famosos do Brasil",
-      "horario": "15:00",
-      "contatoEvento": "(31) 99985-7660",
-      "data": "25/07/2020",
-      "cidade": "Belo Horizonte",
-      "bairro": "Ceu Azul",
-      "rua": "Alieta",
-      "numero": 880,
-      "complemento": "Salao De Festa",
-      "id": 2
+      "id": 1
     }
   ],
   "artistas": [
@@ -26,7 +26,7 @@
       "senha": "dado12345",
       "tipo": "Programador",
       "descricao": "Primeiro App",
-      "dataDeNascimento": "26/04/1998",
+      "dataDeNascimento": "1998-04-26T04:09:39.793-03:00",
       "urlImg": "https://image.freepik.com/vetores-gratis/perfil-de-personagem-de-desenho-animado-de-avatar-de-homem-de-negocios_18591-50137.jpg",
       "id": 1
     }
